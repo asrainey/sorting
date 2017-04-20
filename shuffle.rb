@@ -1,22 +1,17 @@
-def recursive_shuffle array, shuffled_array
+def recursive_shuffle array
   item = array[rand(array.length)]
+  shuffled_array = []
 
   if array.length < 0
     return shuffled_array
   else
     shuffled_array.push item
     item = array[rand(array.length - 1)]
-
-    recursive_shuffle array, shuffled_array
   end
 
 end
 
-  def shuffle some_array
-    recursive_shuffle some_array, []
-  end
-
-  puts shuffle(['apple', 'strawberry', 'melon', 'watermelon', 'cherry', 'orange'])
+  puts recursive_shuffle(['apple', 'strawberry', 'melon', 'watermelon', 'cherry', 'orange'])
 
 #below here is prior work (for reference)
 #  while array.length > 0
