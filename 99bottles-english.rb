@@ -1,12 +1,11 @@
 def write_song number
-  num_now = number
-  num_string = ''
+  if number > 2
+    num_string = ''
 
-  ones_place = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
-  tens_place = ['ten', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
-  teenagers = ['eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
+    ones_place = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+    tens_place = ['ten', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
+    teenagers = ['eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
 
-  while num_now > 2
     left = number
     write = left/1000
     left = left - write*1000
@@ -51,17 +50,26 @@ def write_song number
     if write > 0
       num_string = num_string + ones_place[write-1]
     end
-    puts num_string + ' bottles of beer on the wall, ' + num_string + ' bottles of beer.'
-    num_now = num_now - 1
-
-    write_song num_now
     puts 'Take one down, pass it around, ' + num_string + ' bottles of beer on the wall.'
+    puts num_string + ' bottles of beer on the wall, ' + num_string + ' bottles of beer.'
+    number = number - 1
   end
 
-#  puts 'Two bottles of beer on the wall, Two bottles of beer.'
-#  puts 'Take one down pass it around, one bottle of beer on the wall.'
-#  puts 'one bottle of beer on the wall, one bottle of beer'
-#  puts 'Take one down, pass it around, no bottles of beer on the wall!'
+  if number == 2
+    puts 'Two bottles of beer on the wall, Two bottles of beer.'
+    puts 'Take one down pass it around, one bottle of beer on the wall.'
+    number = number - 1
+  end
+
+  if number == 1
+    puts 'one bottle of beer on the wall, one bottle of beer'
+    puts 'Take one down, pass it around, no bottles of beer on the wall!'
+    number = number - 1
+  end
+
+  if number == 0
+  end
+    write_song number
 end
 
-write_song 10
+write_song 5
