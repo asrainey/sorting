@@ -1,8 +1,7 @@
 def recursive_shuffle array
   shuffled_array = []
-  if array.length < 0
-    return shuffled_array
-  else
+
+  while array.length > 0
     new_array = []
     random_index = rand(array.length)
     current_index = 0
@@ -17,6 +16,7 @@ def recursive_shuffle array
     end
     array = new_array
   end
+  shuffled_array
 end
 
 puts recursive_shuffle ['apple', 'strawberry', 'melon', 'watermelon', 'cherry', 'orange']
