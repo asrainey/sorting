@@ -1,29 +1,25 @@
-def recursive_shuffle array, shuffled_array
+def recursive_shuffle array
+  shuffled_array = []
   if array.length < 0
     return shuffled_array
-  end
+  else
+    new_array = []
+    random_index = rand(array.length)
+    current_index = 0
 
-  index = rand(array.length)
-  item = array[index]
-  new_array = []
-
-  array.each do |object|
-    if object != item
-      new_array.push item
-      item = object
-    else
-      new_array.push object
+    array.each do |object|
+      if current_index == random_index
+        shuffled_array.push object
+      else
+        new_array.push object
+      end
+      current_index = current_index + 1
     end
-    shuffled_array.push object
+    array = new_array
   end
-    recursive_shuffle new_array, shuffled_array
 end
 
-def shuffle some_array
-  recursive_shuffle some_array, []
-end
-
-puts shuffle(['apple', 'strawberry', 'melon', 'watermelon', 'cherry', 'orange'])
+puts recursive_shuffle(['apple', 'strawberry', 'melon', 'watermelon', 'cherry', 'orange'])
 
 #below here is prior work (for reference)
 #  while array.length > 0
