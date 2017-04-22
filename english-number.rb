@@ -7,10 +7,10 @@ def english_number number
     return 'zero'
   end
 
-  num_string = ' '
+  num_string = ''
 
   ones_place = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
-  tens_place = ['ten', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', eighty', ninety']
+  tens_place = ['ten', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
   teenagers = ['eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
 
   left = number
@@ -20,7 +20,7 @@ def english_number number
   if write > 0
     hundreds = english_number write
     num_string = num_string + hundreds + ' hundred'
-    if left < 0
+    if left > 0
       num_string = num_string + ' '
     end
   end
@@ -36,8 +36,9 @@ def english_number number
       num_string = num_string + tens_place[write - 1]
     end
     if left > 0
-      num_string = num_string + ' '
+      num_string = num_string + '-'
     end
+  end
 
   write = left
   left = 0
@@ -49,4 +50,7 @@ def english_number number
 end
 
 puts english_number(0)
+puts english_number(32)
 puts english_number(88)
+puts english_number(101)
+puts english_number(234)
