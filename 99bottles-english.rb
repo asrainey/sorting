@@ -52,13 +52,13 @@ def write_song number
     end
 #    puts num_string + ' beer'
      puts 'Take one down, pass it around, ' + num_string + ' bottles of beer on the wall.'
-     puts num_string + ' bottles of beer on the wall, ' + num_string + ' bottles of beer.'
+     puts num_string.capitalize + ' bottles of beer on the wall, ' + num_string + ' bottles of beer.'
      number = number - 1
      write_song number
   end
 
   if number == 2
-    puts 'Two bottles of beer on the wall, Two bottles of beer.'
+    puts 'Two bottles of beer on the wall, two bottles of beer.'
     puts 'Take one down pass it around, one bottle of beer on the wall.'
     number = number - 1
   end
