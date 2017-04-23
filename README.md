@@ -1,4 +1,4 @@
-#sorting
+# sorting
 
 These exercises are from Learn to Program (Chris Pine), Chapter 10.
 
